@@ -1,36 +1,31 @@
 import random
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
 from kivy.uix.camera import Camera
-import os
-from android.permissions import request_permissions, Permission
-
-# Запрашиваем разрешения на доступ к хранилищу файлов
-request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA])
-
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 
 class CameraApp(App):
     def build(self):
+        # Create a BoxLayout to hold the camera and button
         layout = BoxLayout(orientation='vertical')
 
-        # Добавляем виджет камеры
-        self.camera = Camera(play=False, index=1)  # Используйте index=1 для фронтальной камеры
+        # Create a Camera widget
+        self.camera = Camera(resolution=(640, 480), play=True)
+        self.text = Label(text='Photo will show there!')
         layout.add_widget(self.camera)
+        layout.add_widget(self.text)
 
-        # Добавляем кнопку для съемки фото
-        btn_capture = Button(text='Сделать фото')
-        btn_capture.bind(on_press=self.capture)
-        layout.add_widget(btn_capture)
+        # Create a button to capture the photo
+        button = Button(text="Capture", size_hint=(None, None))
+        button.bind(on_press=self.capture)
+        layout.add_widget(button)
 
         return layout
 
     def capture(self, *args):
-
-        photo_path = f'/storage/emulated/0/Pictures/{random.randint(0, 1000)}.png'
-        self.camera.export_to_png(photo_path)
-        print(f"Фото сохранено в {photo_path}")
-
-if __name__ == '__main__':
-    # Создаем и запускаем приложение
-    CameraApp().run()
+        # Capture the photo and save it to a file
+        self.camera.export_to_png(f"storage/emulated/0/Pictures/{random.randint(1000)}.png")
+        self.text = "Photo captured!"
+        
+CameraApp().run()

@@ -1,1 +1,6 @@
-opencv-python
+certifi
+chardet
+idna
+pytelegrambotapi
+requests
+urllib3

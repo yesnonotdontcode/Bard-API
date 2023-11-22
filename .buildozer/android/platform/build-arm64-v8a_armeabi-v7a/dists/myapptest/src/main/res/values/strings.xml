@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">testappforuse</string>
+    <string name="private_version">9afad3de0f7ba65ff6ece2d784a8077ab5bdd5b6</string>
+    <string name="presplash_color">#000000</string>
+    <string name="urlScheme">kivy</string>
+</resources>

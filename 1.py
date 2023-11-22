@@ -14,11 +14,11 @@ m = {
 def check_messages():
   while True:
     r_message = get(url + 'json')
-    if r_message.text == m['message']:
+    if r_message.text.replace('[', '').replace('"', '').replace(']','') == m['message']:
         pass
     else:
-        print(r_message.text)
-        m['message'] = r_message.text
+        print(r_message.text.replace('[', '').replace('"', '').replace(']',''))
+        m['message'] = r_message.text.replace('[', '').replace('"', '').replace(']','')
 
 def send_message():
   while True:

@@ -16,12 +16,12 @@ our %config = (
   CC => "aarch64-linux-android21-clang",
   CFLAGS => [ "-target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC" ],
   CPPDEFINES => [ "__ANDROID_API__=21" ],
-  CPPFLAGS => [ "-DANDROID -I/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/python-installs/test_project/arm64-v8a/include/python3.1" ],
+  CPPFLAGS => [ "-DANDROID -I/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/python-installs/myapp/arm64-v8a/include/python3.1" ],
   CPPINCLUDES => [  ],
   CXX => "/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC",
   CXXFLAGS => [ "-target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC" ],
   HASHBANGPERL => "/usr/bin/env perl",
-  LDFLAGS => [ "  -L/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/libs_collections/test_project/arm64-v8a" ],
+  LDFLAGS => [ "  -L/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/libs_collections/myapp/arm64-v8a" ],
   LDLIBS => [ "-lm" ],
   PERL => "/usr/bin/perl",
   RANLIB => ":",
@@ -70,12 +70,12 @@ our %config = (
       "BUILDFILE" => undef,
       "CC" => "clang",
       "CFLAGS" => "-target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC",
-      "CPPFLAGS" => "-DANDROID -I/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/python-installs/test_project/arm64-v8a/include/python3.1",
+      "CPPFLAGS" => "-DANDROID -I/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -I/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/python-installs/myapp/arm64-v8a/include/python3.1",
       "CROSS_COMPILE" => undef,
       "CXX" => "/home/codespace/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC",
       "CXXFLAGS" => "-target aarch64-linux-android21 -fomit-frame-pointer -march=armv8-a -fPIC",
       "HASHBANGPERL" => undef,
-      "LDFLAGS" => "  -L/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/libs_collections/test_project/arm64-v8a",
+      "LDFLAGS" => "  -L/workspaces/Bard-API/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/libs_collections/myapp/arm64-v8a",
       "LDLIBS" => "-lm",
       "OPENSSL_LOCAL_CONFIG_DIR" => undef,
       "PERL" => undef,
@@ -3161,6 +3161,8 @@ our %unified_info = (
                 {
                     "deps" =>
                         [
+                            "ssl/packet.o",
+                            "ssl/tls13_enc.o",
                             "ssl/bio_ssl.o",
                             "ssl/d1_lib.o",
                             "ssl/d1_msg.o",
@@ -3190,8 +3192,6 @@ our %unified_info = (
                             "ssl/t1_trce.o",
                             "ssl/tls13_enc.o",
                             "ssl/tls_srp.o",
-                            "ssl/packet.o",
-                            "ssl/tls13_enc.o",
                         ],
                     "products" =>
                         {

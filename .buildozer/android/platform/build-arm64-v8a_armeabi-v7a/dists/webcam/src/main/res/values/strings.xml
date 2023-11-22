@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Web cam</string>
-    <string name="private_version">2c772e35d8b25a0711cd304c1665991ea5cb6c0e</string>
-    <string name="presplash_color">#000000</string>
-    <string name="urlScheme">kivy</string>
-</resources>
